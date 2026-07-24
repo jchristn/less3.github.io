@@ -1,0 +1,16 @@
+{
+  "name": "less3-ai-site",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/serve-static.cjs",
+    "typecheck": "node scripts/check-static.cjs",
+    "lint": "node scripts/check-static.cjs",
+    "build": "node scripts/check-static.cjs",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.12.1",
+    "@playwright/test": "^1.61.1"
+  }
+}

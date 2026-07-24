@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://less3.ai/sitemap.xml

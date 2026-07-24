@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Less3 - Open-Source S3-Compatible Object Storage</title>
+    <meta name="description" content="Run S3-compatible object storage on infrastructure you control. Less3 supports local development, private deployments, familiar S3 clients, Docker, multiple metadata databases, and a web dashboard.">
+    <link rel="canonical" href="https://less3.ai/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://less3.ai/">
+    <meta property="og:site_name" content="Less3">
+    <meta property="og:title" content="Less3 - Open-Source S3-Compatible Object Storage">
+    <meta property="og:description" content="Run S3-compatible object storage on infrastructure you control. Less3 supports local development, private deployments, familiar S3 clients, Docker, multiple metadata databases, and a web dashboard.">
+    <meta property="og:image" content="https://less3.ai/public/social/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Less3 - Open-Source S3-Compatible Object Storage">
+    <meta name="twitter:description" content="Run S3-compatible object storage on infrastructure you control. Less3 supports local development, private deployments, familiar S3 clients, Docker, multiple metadata databases, and a web dashboard.">
+    <meta name="twitter:image" content="https://less3.ai/public/social/og-image.png">
+    <meta name="theme-color" content="#0b1220">
+    <link rel="icon" href="./public/favicon.ico">
+    <link rel="apple-touch-icon" href="./public/favicon.png">
+    <script>
+      try {
+        const storedTheme = localStorage.getItem("less3-theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = storedTheme || (prefersDark ? "dark" : "light");
+      } catch {
+        document.documentElement.dataset.theme = "light";
+      }
+    </script>
+    <link rel="stylesheet" href="./styles.css">
+    <script defer src="./script.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand-link" href="#top" aria-label="Less3 home">
+          <img src="./public/brand/heart.png" width="960" height="960" alt="">
+          <span>Less3</span>
+        </a>
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="primary-navigation">
+          <span class="menu-button__bar"></span>
+          <span class="menu-button__bar"></span>
+          <span class="menu-button__bar"></span>
+          <span class="sr-only">Menu</span>
+        </button>
+        <nav id="primary-navigation" class="primary-nav" aria-label="Primary">
+          <a href="#why-less3">Why Less3</a>
+          <a href="#use-cases">Use Cases</a>
+          <a href="#compatibility">Compatibility</a>
+          <a href="#dashboard">Dashboard</a>
+          <a href="#deploy">Deploy</a>
+          <a href="#open-source">Open Source</a>
+          <a href="#documentation">Documentation</a>
+          <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+            <svg class="theme-icon theme-icon--moon" aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="M21 14.7A8 8 0 0 1 9.3 3a7 7 0 1 0 11.7 11.7Z"></path></svg>
+            <svg class="theme-icon theme-icon--sun" aria-hidden="true" viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path></svg>
+          </button>
+          <a class="nav-icon nav-icon--github" href="https://github.com/jchristn/less3" rel="noreferrer" aria-label="View Less3 on GitHub">
+            <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="M12 2C6.48 2 2 6.58 2 12.22c0 4.51 2.87 8.34 6.84 9.69.5.1.68-.22.68-.49v-1.9c-2.78.62-3.37-1.22-3.37-1.22-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.56 2.36 1.11 2.93.85.09-.66.35-1.11.64-1.36-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05A9.4 9.4 0 0 1 12 6.89c.85 0 1.7.12 2.5.35 1.9-1.33 2.74-1.05 2.74-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9v2.8c0 .27.18.59.69.49A10.06 10.06 0 0 0 22 12.22C22 6.58 17.52 2 12 2Z"></path></svg>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <img class="hero__background" src="./public/screenshots/dashboard-home.png" width="1396" height="1023" alt="">
+        <div class="hero__shade"></div>
+        <div class="container hero__inner">
+          <div class="hero__copy">
+            <p class="section-label">Open-source S3-compatible object storage</p>
+            <h1 id="hero-title"><span>Your S3 endpoint.</span><span>Your infrastructure.</span><span>Your data.</span></h1>
+            <p>Run an S3-compatible object store on a laptop, virtual machine, container, or server. Keep familiar SDKs and workflows while choosing where your objects and metadata live.</p>
+            <div class="hero__actions">
+              <a class="button button--primary" href="#quick-start">Get Started</a>
+              <a class="button button--light button--icon" href="https://github.com/jchristn/less3" rel="noreferrer" aria-label="View Less3 on GitHub">
+                <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="M12 2C6.48 2 2 6.58 2 12.22c0 4.51 2.87 8.34 6.84 9.69.5.1.68-.22.68-.49v-1.9c-2.78.62-3.37-1.22-3.37-1.22-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.56 2.36 1.11 2.93.85.09-.66.35-1.11.64-1.36-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05A9.4 9.4 0 0 1 12 6.89c.85 0 1.7.12 2.5.35 1.9-1.33 2.74-1.05 2.74-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9v2.8c0 .27.18.59.69.49A10.06 10.06 0 0 0 22 12.22C22 6.58 17.52 2 12 2Z"></path></svg>
+              </a>
+            </div>
+            <a class="hero__text-link" href="#compatibility">Review S3 Compatibility</a>
+          </div>
+
+          <div class="hero-terminal" aria-label="Docker quick start commands">
+            <div class="hero-terminal__chrome">
+              <span></span>
+              <span></span>
+              <span></span>
+              <button class="copy-button" type="button" data-copy-target="hero-code">
+                <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><rect x="8" y="8" width="10" height="12" rx="2"></rect><path d="M6 16H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span>Copy</span>
+              </button>
+              <span class="copy-status" aria-live="polite"></span>
+            </div>
+            <pre><code id="hero-code">git clone https://github.com/jchristn/less3
+cd less3/Docker
+docker compose up -d
+aws --endpoint-url http://localhost:8000 s3 ls</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="proof-strip" aria-label="Project facts">
+        <div class="container proof-strip__inner">
+          <span>MIT Licensed</span>
+          <span>Docker Ready</span>
+          <span>AWS SDK and CLI Tested</span>
+          <span>Web Dashboard</span>
+          <span>SQLite, SQL Server, MySQL, and PostgreSQL</span>
+        </div>
+      </section>
+
+      <section class="section section--light" id="why-less3">
+        <div class="container">
+          <div class="section-heading">
+            <p class="section-label">Why Less3</p>
+            <h2>Use the S3 interface without making every environment depend on a public-cloud endpoint.</h2>
+            <p>Development machines, private networks, remote sites, and controlled environments still need practical object storage. Less3 provides a familiar S3-compatible interface backed by infrastructure you operate.</p>
+          </div>
+          <div class="feature-grid">
+            <article class="feature-card"><h3>Develop locally without cloud dependencies</h3><p>Build and test against an S3-compatible endpoint without requiring a cloud account, shared test bucket, or production data.</p></article>
+            <article class="feature-card"><h3>Keep data where the deployment requires</h3><p>Place object storage alongside the application when locality, isolation, connectivity, or operational control matters.</p></article>
+            <article class="feature-card"><h3>Reuse familiar tools</h3><p>Connect with documented AWS SDK, AWS CLI, MinIO Client, S3 browser, or direct REST workflows instead of inventing a new storage integration.</p></article>
+            <article class="feature-card"><h3>Operate visually or through APIs</h3><p>Use the browser dashboard for day-to-day work and administrative APIs for automation.</p></article>
+          </div>
+          <blockquote class="pull-quote">Own the storage. Keep the workflow.</blockquote>
+        </div>
+      </section>
+
+      <section class="section" id="use-cases">
+        <div class="container">
+          <div class="section-heading">
+            <p class="section-label">Use Cases</p>
+            <h2>One S3-compatible endpoint. Several practical jobs.</h2>
+          </div>
+          <div class="use-case-list">
+            <article class="use-case-row"><h3>Local development and integration testing</h3><p>Run a predictable local endpoint, create disposable buckets and objects, and exercise supported S3 behavior without touching a shared cloud environment.</p><strong>Your integration tests should not need a production bucket.</strong></article>
+            <article class="use-case-row"><h3>CI/CD pipelines</h3><p>Start a clean Less3 instance inside a build pipeline, run storage integration tests in isolation, and dispose of the environment when the job finishes.</p><strong>A clean S3-compatible target for every build.</strong></article>
+            <article class="use-case-row"><h3>Private infrastructure</h3><p>Expose an S3-compatible storage interface from hardware your organization already operates and choose the metadata database that fits the deployment.</p><strong>Give internal applications a familiar object-storage interface on infrastructure you control.</strong></article>
+            <article class="use-case-row"><h3>Remote and controlled environments</h3><p>Deploy object storage close to applications in remote, isolated, or connectivity-constrained locations where data placement must remain explicit.</p><strong>Bring a familiar storage API to the data.</strong></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--ink" id="compatibility">
+        <div class="container">
+          <div class="section-heading">
+            <p class="section-label">Compatibility</p>
+            <h2>Compatibility you can verify.</h2>
+            <p>For an S3-compatible platform, behavior matters more than a logo. Less3 publishes the operations it supports, the clients it tests, and the places where its behavior differs from AWS S3.</p>
+          </div>
+          <div class="client-list" aria-label="Tested clients and integrations">
+            <span>AWS SDKs</span><span>AWS CLI</span><span>MinIO Client (mc)</span><span>CloudBerry Explorer for S3</span><span>S3 Browser</span><span>Direct REST integrations using the documented supported surface</span>
+          </div>
+          <p class="trust-statement">Less3 implements a documented subset of the S3 API. It does not claim complete parity with AWS S3. Supported operations, tested clients, and known behavioral differences are published so teams can evaluate compatibility before adopting it.</p>
+          <div class="compatibility-groups">
+            <details class="operation-group" open><summary><span>Service</span><span>1 operation</span></summary><ul class="operation-list"><li>ListBuckets</li></ul></details>
+            <details class="operation-group" open><summary><span>Buckets</span><span>14 operations</span></summary><ul class="operation-list"><li>CreateBucket</li><li>DeleteBucket</li><li>HeadBucket</li><li>ListObjectsV2</li><li>ListObjectVersions</li><li>GetBucketAcl</li><li>PutBucketAcl</li><li>GetBucketTagging</li><li>PutBucketTagging</li><li>DeleteBucketTagging</li><li>GetBucketVersioning</li><li>PutBucketVersioning</li><li>GetBucketLocation</li><li>ListMultipartUploads</li></ul></details>
+            <details class="operation-group" open><summary><span>Objects</span><span>11 operations</span></summary><ul class="operation-list"><li>PutObject</li><li>GetObject</li><li>GetObject with Range</li><li>HeadObject</li><li>DeleteObject</li><li>DeleteObjects</li><li>GetObjectAcl</li><li>PutObjectAcl</li><li>GetObjectTagging</li><li>PutObjectTagging</li><li>DeleteObjectTagging</li></ul></details>
+            <details class="operation-group" open><summary><span>Multipart uploads</span><span>5 operations</span></summary><ul class="operation-list"><li>CreateMultipartUpload</li><li>UploadPart</li><li>CompleteMultipartUpload</li><li>AbortMultipartUpload</li><li>ListParts</li></ul></details>
+          </div>
+          <div class="section-actions">
+            <a class="button button--primary" href="https://github.com/jchristn/less3/blob/main/S3_API.md" rel="noreferrer">View the Compatibility Matrix</a>
+            <a class="button button--secondary" href="https://github.com/jchristn/less3/blob/main/AWSCLI.md" rel="noreferrer">See AWS CLI Examples</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--light" id="dashboard">
+        <div class="container">
+          <div class="section-heading">
+            <p class="section-label">Dashboard</p>
+            <h2>An API you can automate. A dashboard humans can use.</h2>
+            <p>Understand activity, manage storage, administer access, and exercise supported APIs from a browser.</p>
+          </div>
+          <div class="dashboard-showcase">
+            <div class="dashboard-showcase__image"><img src="./public/screenshots/dashboard-home.png" width="1396" height="1023" alt="Less3 dashboard home view with storage totals, active credentials, request activity, and operational health details."></div>
+            <div class="dashboard-showcase__details">
+              <div class="detail-shot"><img src="./public/screenshots/object-details.png" width="1411" height="936" alt="Less3 object detail dialog showing bucket, key, ETag, storage class, and download URL metadata."></div>
+              <div class="detail-shot"><img src="./public/screenshots/api-explorer.png" width="1411" height="946" alt="Less3 API Explorer showing an admin list buckets request and a structured JSON response."></div>
+            </div>
+            <div class="feature-grid feature-grid--dashboard">
+              <article class="feature-card"><h3>See what is happening</h3><p>Review bucket, object, and storage totals alongside request activity over selectable time ranges.</p></article>
+              <article class="feature-card"><h3>Manage buckets and objects</h3><p>Browse objects and virtual folders, upload and download files, inspect or edit supported text content, manage tags and ACLs, and perform bulk actions.</p></article>
+              <article class="feature-card"><h3>Manage identities and credentials</h3><p>Create and update users, tenants, access keys, secret keys, roles, permissions, and assignments through the administrative surface.</p></article>
+              <article class="feature-card"><h3>Explore APIs interactively</h3><p>Select supported S3 or administrative operations, choose credentials, submit requests, inspect headers and bodies, and format structured responses.</p></article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="deploy">
+        <div class="container">
+          <div class="section-heading">
+            <p class="section-label">Deploy</p>
+            <h2>Start simple. Fit Less3 to your environment.</h2>
+            <p>Run Less3 as a .NET service or deploy the server and dashboard with Docker Compose. Use lightweight defaults for development, then move configuration, metadata, and object storage onto persistent infrastructure.</p>
+          </div>
+          <div class="deploy-grid">
+            <article class="deploy-group"><h3>Deployment choices</h3><ul><li>Build and run from source</li><li>Publish as a .NET application</li><li>Build with Docker</li><li>Run published container images</li><li>Use Docker Compose for the server and dashboard</li></ul></article>
+            <article class="deploy-group"><h3>Metadata database choices</h3><p>Choose the metadata backend appropriate to the deployment without changing the client-facing S3-compatible endpoint.</p><ul><li>SQLite as the simple default</li><li>SQL Server</li><li>MySQL</li><li>PostgreSQL</li></ul></article>
+            <article class="deploy-group"><h3>URL conventions</h3><p>Use the URL convention that matches the environment and client configuration.</p><ul><li>Path-style URLs for simple local and internal deployments</li><li>Virtual-hosted-style URLs for S3-like hostname patterns</li></ul></article>
+          </div>
+          <figure class="architecture-diagram">
+            <svg role="img" aria-labelledby="architecture-title architecture-description" viewBox="0 0 920 520">
+              <title id="architecture-title">Less3 deployment architecture</title>
+              <desc id="architecture-description">Applications and S3 clients connect to the Less3 endpoint. The endpoint writes object data to disk or a volume and metadata to SQLite, SQL Server, MySQL, or PostgreSQL. The dashboard talks to the Less3 administrative and S3 surfaces.</desc>
+              <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z"></path></marker></defs>
+              <g class="diagram-node diagram-node--client"><rect x="250" y="24" width="420" height="82" rx="8"></rect><text x="460" y="58" text-anchor="middle">Applications and S3 clients</text><text x="460" y="82" text-anchor="middle">AWS SDK, AWS CLI, mc, browsers, REST</text></g>
+              <path class="diagram-line" d="M460 106 V164" marker-end="url(#arrow)"></path>
+              <g class="diagram-node diagram-node--endpoint"><rect x="285" y="166" width="350" height="94" rx="8"></rect><text x="460" y="204" text-anchor="middle">Less3 endpoint</text><text x="460" y="228" text-anchor="middle">S3-compatible API and admin surfaces</text></g>
+              <path class="diagram-line" d="M358 260 C300 308 250 328 190 360" marker-end="url(#arrow)"></path>
+              <path class="diagram-line" d="M562 260 C620 308 670 328 730 360" marker-end="url(#arrow)"></path>
+              <path class="diagram-line diagram-line--dash" d="M460 260 V372" marker-end="url(#arrow)"></path>
+              <g class="diagram-node"><rect x="52" y="362" width="276" height="96" rx="8"></rect><text x="190" y="402" text-anchor="middle">Object data</text><text x="190" y="426" text-anchor="middle">Disk or mounted volume</text></g>
+              <g class="diagram-node"><rect x="592" y="362" width="276" height="96" rx="8"></rect><text x="730" y="400" text-anchor="middle">Metadata</text><text x="730" y="424" text-anchor="middle">SQLite, SQL Server, MySQL, PostgreSQL</text></g>
+              <g class="diagram-node diagram-node--dashboard"><rect x="285" y="374" width="350" height="92" rx="8"></rect><text x="460" y="410" text-anchor="middle">Admin dashboard</text><text x="460" y="434" text-anchor="middle">Manages through Less3 APIs</text></g>
+            </svg>
+            <figcaption>The dashboard talks to Less3 administrative and S3 surfaces. It is not the storage engine.</figcaption>
+          </figure>
+          <aside class="production-callout" aria-label="Production readiness checklist">
+            <h3>Prepare for production</h3>
+            <p>The supplied credentials, administrative key, HTTP endpoint, and sample bucket are development defaults. Replace them and configure persistent storage before exposing Less3 beyond a trusted development environment.</p>
+            <ol><li>Replace default access and secret keys.</li><li>Replace the default administrative API key and default dashboard/admin credentials.</li><li>Use persistent mounts for object data, metadata, logs, and temporary upload paths as appropriate.</li><li>Configure hostnames, TLS termination, network access, and database placement for the environment.</li><li>Review signature validation, ACLs, public-access settings, and backups before exposure.</li></ol>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section section--light" id="open-source">
+        <div class="container">
+          <div class="section-heading">
+            <p class="section-label">Open Source</p>
+            <h2>Own the implementation, not just the endpoint.</h2>
+            <p>Less3 is MIT licensed. Inspect it, modify it, embed it, redistribute it, or contribute improvements back to the project.</p>
+          </div>
+          <div class="feature-grid feature-grid--three">
+            <article class="feature-card"><h3>Permissive license</h3><p>Use, modify, distribute, or embed Less3 under the MIT license while retaining the required notice.</p></article>
+            <article class="feature-card"><h3>Open compatibility work</h3><p>Supported APIs, test commands, changelog entries, and compatibility issues are visible in the repository.</p></article>
+            <article class="feature-card"><h3>Contributions welcomed</h3><p>Focused pull requests, reproducible bug reports, and documented enhancement proposals are encouraged.</p></article>
+          </div>
+          <div class="section-actions">
+            <a class="button button--primary button--icon" href="https://github.com/jchristn/less3" rel="noreferrer" aria-label="View Less3 on GitHub">
+              <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="M12 2C6.48 2 2 6.58 2 12.22c0 4.51 2.87 8.34 6.84 9.69.5.1.68-.22.68-.49v-1.9c-2.78.62-3.37-1.22-3.37-1.22-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.56 2.36 1.11 2.93.85.09-.66.35-1.11.64-1.36-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05A9.4 9.4 0 0 1 12 6.89c.85 0 1.7.12 2.5.35 1.9-1.33 2.74-1.05 2.74-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9v2.8c0 .27.18.59.69.49A10.06 10.06 0 0 0 22 12.22C22 6.58 17.52 2 12 2Z"></path></svg>
+            </a>
+            <a class="button button--secondary" href="https://github.com/jchristn/less3/issues" rel="noreferrer">Report an Issue</a>
+            <a class="button button--secondary" href="https://github.com/jchristn/less3/blob/main/CONTRIBUTING.md" rel="noreferrer">Contribute</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="quick-start">
+        <div class="container quick-start-layout">
+          <div>
+            <div class="section-heading">
+              <p class="section-label">Quick Start</p>
+              <h2>S3-compatible endpoint in seconds.</h2>
+              <p>On first launch, the setup flow creates the initial server configuration, metadata database, and sample data needed to verify the endpoint. Review and replace development defaults before broader use.</p>
+            </div>
+            <div class="doc-link-row">
+              <a href="https://github.com/jchristn/less3/blob/main/README.md" rel="noreferrer">Full installation documentation</a>
+              <a href="https://github.com/jchristn/less3/blob/main/Docker/compose.yaml" rel="noreferrer">Docker instructions</a>
+              <a href="https://github.com/jchristn/less3/blob/main/AWSCLI.md" rel="noreferrer">AWS CLI test commands</a>
+              <a href="https://github.com/jchristn/less3/blob/main/MINIO_CLIENT.md" rel="noreferrer">MinIO Client test commands</a>
+              <a href="https://github.com/jchristn/less3/blob/main/REST_API.md" rel="noreferrer">Configuration reference</a>
+            </div>
+          </div>
+          <div class="code-tabs">
+            <div class="code-tabs__header">
+              <div class="code-tabs__tablist" role="tablist" aria-label="Quick start methods">
+                <button class="code-tabs__tab" id="docker-tab" type="button" role="tab" aria-selected="true" aria-controls="docker-panel" data-tab="docker-panel">Docker</button>
+                <button class="code-tabs__tab" id="source-tab" type="button" role="tab" aria-selected="false" aria-controls="source-panel" data-tab="source-panel" tabindex="-1">From Source</button>
+              </div>
+              <button class="copy-button" type="button" data-copy-active-panel>
+                <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><rect x="8" y="8" width="10" height="12" rx="2"></rect><path d="M6 16H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span>Copy</span>
+              </button>
+              <span class="copy-status" aria-live="polite"></span>
+            </div>
+            <div id="docker-panel" role="tabpanel" aria-labelledby="docker-tab"><pre class="code-block"><code>git clone https://github.com/jchristn/less3
+cd less3/Docker
+docker compose up -d
+
+aws --endpoint-url http://localhost:8000 s3 ls
+
+# Dashboard
+# http://localhost:3000</code></pre></div>
+            <div id="source-panel" role="tabpanel" aria-labelledby="source-tab" hidden><pre class="code-block"><code>git clone https://github.com/jchristn/less3
+cd less3
+dotnet build src/Less3.sln
+cd src/Less3
+dotnet run</code></pre></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta">
+        <div class="container final-cta__inner">
+          <h2>Put an S3-compatible endpoint where your application needs it.</h2>
+          <p>Start locally, inspect the supported API surface, and deploy on infrastructure you control.</p>
+          <div class="section-actions section-actions--center">
+            <a class="button button--primary" href="#quick-start">Get Started</a>
+            <a class="button button--light button--icon" href="https://github.com/jchristn/less3" rel="noreferrer" aria-label="View Less3 on GitHub">
+              <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="M12 2C6.48 2 2 6.58 2 12.22c0 4.51 2.87 8.34 6.84 9.69.5.1.68-.22.68-.49v-1.9c-2.78.62-3.37-1.22-3.37-1.22-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.56 2.36 1.11 2.93.85.09-.66.35-1.11.64-1.36-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05A9.4 9.4 0 0 1 12 6.89c.85 0 1.7.12 2.5.35 1.9-1.33 2.74-1.05 2.74-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9v2.8c0 .27.18.59.69.49A10.06 10.06 0 0 0 22 12.22C22 6.58 17.52 2 12 2Z"></path></svg>
+            </a>
+            <a class="text-link-light" href="https://github.com/jchristn/less3/wiki" rel="noreferrer">Read the Documentation</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="documentation">
+      <div class="site-footer__brand">
+        <img src="./public/brand/heart.png" width="960" height="960" alt="">
+        <div>
+          <p class="footer-name">Less3</p>
+          <p>Open-source, self-hosted S3-compatible object storage for development, private infrastructure, and controlled data placement.</p>
+        </div>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <a class="footer-github-icon" href="https://github.com/jchristn/less3" rel="noreferrer" aria-label="View Less3 on GitHub">
+          <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="M12 2C6.48 2 2 6.58 2 12.22c0 4.51 2.87 8.34 6.84 9.69.5.1.68-.22.68-.49v-1.9c-2.78.62-3.37-1.22-3.37-1.22-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.56 2.36 1.11 2.93.85.09-.66.35-1.11.64-1.36-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05A9.4 9.4 0 0 1 12 6.89c.85 0 1.7.12 2.5.35 1.9-1.33 2.74-1.05 2.74-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9v2.8c0 .27.18.59.69.49A10.06 10.06 0 0 0 22 12.22C22 6.58 17.52 2 12 2Z"></path></svg>
+        </a>
+        <a href="https://github.com/jchristn/less3/wiki" rel="noreferrer">Documentation</a>
+        <a href="https://github.com/jchristn/less3/blob/main/S3_API.md" rel="noreferrer">Compatibility</a>
+        <a href="https://github.com/jchristn/less3/blob/main/AWSCLI.md" rel="noreferrer">AWS CLI guide</a>
+        <a href="https://github.com/jchristn/less3/blob/main/MINIO_CLIENT.md" rel="noreferrer">MinIO Client guide</a>
+        <a href="https://hub.docker.com/r/jchristn77/less3" rel="noreferrer">Docker Hub</a>
+        <a href="https://github.com/jchristn/less3/issues" rel="noreferrer">Issues</a>
+        <a href="https://github.com/jchristn/less3/blob/main/CONTRIBUTING.md" rel="noreferrer">Contributing</a>
+        <a href="https://github.com/jchristn/less3/blob/main/CHANGELOG.md" rel="noreferrer">Changelog</a>
+        <a href="https://github.com/jchristn/less3/blob/main/LICENSE.md" rel="noreferrer">MIT License</a>
+      </nav>
+      <div class="footer-note">
+        <p>Less3 is an independent open-source project and is not affiliated with or endorsed by Amazon Web Services.</p>
+        <p>Copyright (c) 2026 Joel Christner</p>
+      </div>
+    </footer>
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"Less3","description":"Open-source, self-hosted S3-compatible object storage for development, private infrastructure, and controlled data placement.","codeRepository":"https://github.com/jchristn/less3","license":"https://github.com/jchristn/less3/blob/main/LICENSE.md","programmingLanguage":["C#","TypeScript"],"runtimePlatform":".NET","applicationCategory":"DeveloperApplication","maintainer":{"@type":"Person","name":"Joel Christner"}}</script>
+  </body>
+</html>
