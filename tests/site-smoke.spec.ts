@@ -25,7 +25,8 @@ test("homepage renders without horizontal overflow at required viewports", async
     await expect(page.locator("#hero-title span")).toHaveText([
       "Your S3 endpoint.",
       "Your infrastructure.",
-      "Your data."
+      "Your data.",
+      "Permissively licensed."
     ]);
     await expect(page.getByRole("heading", { name: "Compatibility you can verify." })).toBeVisible();
 
